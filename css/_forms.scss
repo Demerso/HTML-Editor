@@ -1,0 +1,87 @@
+.form {
+  @include menuPopup();
+  min-width: 285px;
+  padding: 15px;
+
+  .pass-icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/eye-off.svg");
+    display: inline;
+    margin: 0;
+    cursor: pointer;
+    input {
+      cursor: pointer;
+      margin: 0;
+      opacity: 0;
+    }
+  }
+
+  .checkbox {
+    user-select: none;
+    label {
+      cursor: pointer;
+      &:hover::before {
+        background-color: $light_gray;
+      }
+    }
+    label::before {
+      transition: background-size 0.1s ease-in-out,
+        background-color 0.3s ease-in-out;
+      vertical-align: bottom;
+      display: inline-block;
+      content: "";
+      width: 1em;
+      height: 1em;
+      border: 2px solid black;
+      border-radius: 2px;
+      background-color: white;
+      background-image: url("../img/check.svg");
+      background-size: 0px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    input {
+      display: none;
+      &:checked + label::before {
+        background-size: 1em;
+      }
+    }
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    border-radius: $border_radius;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    padding: 7px 5px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid $light_gray;
+    transition: border-bottom 0.3s ease-in-out;
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $dark_gray;
+    }
+  }
+
+  input[type="submit"] {
+    display: block;
+    float: right;
+    cursor: pointer;
+    outline: none;
+    background-color: $light_gray;
+    font-size: 1em;
+    padding: 5px 10px;
+    border: none;
+    border: 2px solid $dark_gray;
+    border-radius: $border_radius;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: $dark_gray;
+      color: $light_gray;
+    }
+  }
+}
